@@ -1,0 +1,48 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "henry-hub",
+      "path": "monthly_prices_henry_hub.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "date",
+            "type": "date",
+            "format": "default",
+            "title": "Date",
+            "description": "First day of every month"
+          },
+          {
+            "name": "price",
+            "type": "integer",
+            "format": "default",
+            "title": "Price",
+            "description": "Monthly gas price"
+          }
+        ]
+      }
+    }
+  ],
+  "keywords": [
+    "gas prices",
+    "henry hub"
+  ],
+  "name": "monthly-henry-hub-gas-prices",
+  "description": "This contains gas prices collected from EIA open source API for the company: Henry hub",
+  "title": "Henry hub gas prices(monthly)",
+  "licenses": [
+    {
+      "name": "CC0-1.0",
+      "title": "CC0 1.0",
+      "path": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  ],
+  "contributors": [
+    {
+      "title": "Jesse Amamgbu",
+      "role": "author"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import requests
 import json
 import csv
+import settings
 from dateutil import parser
 
 def extract_data(API_key,freq='D'):
@@ -14,6 +15,7 @@ def extract_data(API_key,freq='D'):
   '''
   if freq == 'D' or freq.upper() == 'D':
     name ='daily'
+    freq = freq.upper()
   elif freq == 'M' or freq.upper() == 'M':
     name = 'monthly'
     freq = freq.upper()
@@ -39,7 +41,10 @@ def extract_data(API_key,freq='D'):
     i = 0
     for i,item in enumerate(data):
       try:
-        date = parser.parse(item[0]+'01')
+        if freq == 'M':
+          date = parser.parse(item[0]+'01')
+        else:
+          date = parser.parse(item[0])
         
         date = date.strftime('%Y-%m-%d')
         
@@ -53,8 +58,5 @@ def extract_data(API_key,freq='D'):
 
   
   message = "Data extraction successful"
-  return message
-
-if __name__ == '__main__':
-    #Enter an API key
-    extract_data('72400f89839db93137e4011c7005ef32','m')
+  print(message)
+  return write_file
